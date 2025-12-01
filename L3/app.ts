@@ -1,0 +1,122 @@
+// let firstName: string;
+// let age: number;
+// firstName = "Diksha";
+// age = 22;
+
+// const person: {
+//   firstName: string;
+//   age: number;
+// } = {
+//   firstName: "Vishal",
+//   age: 22,
+// };
+
+// console.log(person.firstName);
+
+
+
+
+// ! UNION  :-
+
+// function combine(num1: number | string, num2: number | string) {
+//   let result;
+//   if (typeof num1 === "number" && typeof num2 === "number") {
+//     result = num1 + num2;
+//   } else {
+//     result = num1.toString() + num2.toString();
+//   }
+//   return result;
+// }
+
+// const sum = combine(10, 20);
+// const combinedName = combine("Patel" , "MernStack");
+
+// console.log(sum, combinedName);
+
+
+
+
+
+
+
+
+// ! LITERAL TYPES
+
+// function combine(num1: number | string, num2: number | string, conversionType: "as-number" | "as-string") {
+//   let result;
+//   if (typeof num1 === "number" && typeof num2 === "number" || conversionType === "as-number") {
+//     result = +num1 + +num2;
+//   } else {
+//     result = num1.toString() + num2.toString();
+//   }
+//   return result;
+// }
+
+// const sum1 = combine("10", "20", "as-number");
+// const sum2 = combine(10, 50, "as-number");
+// const combinedName = combine("Patel" , " MernStack", "as-string");
+
+// console.log(sum1, sum2, combinedName);
+
+
+
+
+
+
+// !TYPE ALIAS     / COSTOM TYPES
+
+// Example 1
+
+type Combinable = number | string;
+type ConversionType = "as-number" | "as-string";
+
+function combine(
+  num1: Combinable,
+  num2: Combinable,
+  conversionType: ConversionType
+) {
+  let result;
+  if (
+    (typeof num1 === "number" && typeof num2 === "number") ||
+    conversionType === "as-number"
+  ) {
+    result = +num1 + +num2;
+  } else {
+    result = num1.toString() + num2.toString();
+  }
+  return result;
+}
+
+const sum1 = combine("10", "20", "as-number");
+const sum2 = combine(10, 50, "as-number");
+const combinedName = combine("Patel", " MernStack", "as-string");
+
+console.log(sum1, sum2, combinedName);
+
+
+
+// Example 2
+
+type User = {
+    name : string;
+    age: number;
+    skills: string[];
+}
+
+const user : User = {
+    name: "simi",
+    age: 22,
+    skills: ["React", "Node"]
+}
+
+
+
+// Example 3
+
+
+function greet (user:User) {
+    console.log(`Hi I am ${user.name}`);  //Hi I am simi
+    
+}
+
+greet(user)
